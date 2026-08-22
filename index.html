@@ -8,7 +8,53 @@
 
 <meta name="theme-color" content="#070604">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23070604%22/><text x=%2250%22 y=%2267%22 font-size=%2262%22 text-anchor=%22middle%22 fill=%22%23f0d28b%22>†</text></svg>">
-<script src="pixel.js" defer></script>
+
+<!-- META PIXEL — ALTERE APENAS O ID ABAIXO -->
+<script>
+(function(w,d){
+  var META_PIXEL_ID = 'COLE_SEU_PIXEL_ID_AQUI'.trim();
+  w.__META_PIXEL_ID = META_PIXEL_ID;
+
+  if (!/^\d{5,25}$/.test(META_PIXEL_ID)) {
+    console.warn('[Meta Pixel] ID não configurado. Insira o ID numérico do Pixel no campo META_PIXEL_ID.');
+    w.__META_PIXEL_STATUS = 'not_configured';
+    return;
+  }
+
+  if (!w.fbq) {
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;
+      n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+      t=b.createElement(e);t.async=!0;t.src=v;
+      s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
+    }(w,d,'script','https://connect.facebook.net/en_US/fbevents.js');
+  }
+
+  w.fbq('init', META_PIXEL_ID);
+  w.fbq('track', 'PageView');
+  w.fbq('track', 'ViewContent', {
+    content_name: 'Grimório das 12 Palavras de São Bento',
+    content_type: 'product',
+    value: 37.00,
+    currency: 'BRL'
+  });
+  w.__META_PIXEL_STATUS = 'initialized';
+  console.info('[Meta Pixel] Inicializado:', META_PIXEL_ID);
+
+  d.addEventListener('click', function(e){
+    var el=e.target && e.target.closest ? e.target.closest('[data-track-checkout="1"]') : null;
+    if(!el || !w.fbq) return;
+    w.fbq('trackCustom','CheckoutClick',{
+      content_name:'Grimório das 12 Palavras de São Bento',
+      value:37.00,
+      currency:'BRL'
+    });
+  });
+})(window,document);
+</script>
+
 </head>
 <body style="margin:0;background:#070604">
 <!--
@@ -17,7 +63,7 @@ Estrutura otimizada para resposta direta / tráfego frio.
 
 PACOTE ESTÁTICO: envie todos os arquivos e pastas deste projeto para o GitHub.
 O Vercel publicará o index.html automaticamente.
-Para o Meta Pixel, edite apenas META_PIXEL_ID em pixel.js.
+Para o Meta Pixel, procure por META_PIXEL_ID neste index.html e substitua o valor do campo pelo ID numérico do seu Pixel.
 -->
 
 <div id="sbx28-page"
