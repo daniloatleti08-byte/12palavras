@@ -4,7 +4,7 @@
   2) Este site dispara PageView, ViewContent e o evento personalizado CheckoutClick.
   3) Como o Pixel já está instalado na Cakto, deixe InitiateCheckout e Purchase para a Cakto.
 */
-const META_PIXEL_ID = 'COLE_SEU_PIXEL_ID_AQUI';
+const META_PIXEL_ID = '1684026826038026';
 
 (function(){
   if (!META_PIXEL_ID || META_PIXEL_ID === '1684026826038026') {
