@@ -12,7 +12,7 @@
 <!-- META PIXEL — ALTERE APENAS O ID ABAIXO -->
 <script>
 (function(w,d){
-  var META_PIXEL_ID = '1684026826038026'.trim();
+  var META_PIXEL_ID = 'COLE_SEU_PIXEL_ID_AQUI'.trim();
   w.__META_PIXEL_ID = META_PIXEL_ID;
 
   if (!/^\d{5,25}$/.test(META_PIXEL_ID)) {
@@ -84,7 +84,7 @@ Para o Meta Pixel, procure por META_PIXEL_ID neste index.html e substitua o valo
   </div>
 
   <main>
-    <!-- 1. HERO — promessa primeiro, produto depois -->
+    <!-- 1. HERO — promessa + vídeo + CTA direto para checkout -->
     <section class="sbx28-section sbx28-hero">
       <div class="sbx28-hero-light" aria-hidden="true"></div>
       <div class="sbx28-container sbx28-hero-grid">
@@ -100,14 +100,21 @@ Para o Meta Pixel, procure por META_PIXEL_ID neste index.html e substitua o valo
             <div><b>30 dias</b><small>para continuar criando constância</small></div>
           </div>
 
-          <a class="sbx28-cta sbx28-anchor" href="#oferta">QUERO CONHECER A JORNADA</a>
-          <small class="sbx28-cta-note">Veja o que você recebe antes de finalizar sua compra</small>
+          <a class="sbx28-cta sbx28-checkout" data-track-checkout="1" href="https://pay.cakto.com.br/u8gq2a4_755862">QUERO CONHECER A JORNADA</a>
+          <small class="sbx28-cta-note">Compra segura • Pix ou cartão • Acesso digital</small>
         </div>
 
-        <div class="sbx28-cover-stage">
-          <div class="sbx28-cover-ring" aria-hidden="true"></div>
-          <img class="sbx28-cover-image" width="900" height="1200" alt="Capa de O Grimório das 12 Palavras de São Bento" decoding="async" fetchpriority="high">
-          <div class="sbx28-cover-badge">MATERIAL DIGITAL</div>
+        <div class="sbx28-hero-video-stage">
+          <div class="sbx28-hero-video-label">ASSISTA E CONHEÇA A JORNADA</div>
+          <div class="sbx28-hero-video-wrap">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/2QhHoNYcx8c?rel=0&modestbranding=1&playsinline=1"
+              title="Conheça O Grimório das 12 Palavras de São Bento"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <small class="sbx28-hero-video-note">Vídeo de apresentação • Ative o som para assistir</small>
         </div>
       </div>
     </section>
@@ -188,7 +195,7 @@ Para o Meta Pixel, procure por META_PIXEL_ID neste index.html e substitua o valo
               <li><strong>Pague uma única vez</strong> — não há mensalidade.</li>
             </ul>
           </div>
-          <a class="sbx28-cta sbx28-anchor" href="#oferta">QUERO COMEÇAR COM 3 MINUTOS POR DIA</a>
+          <a class="sbx28-cta sbx28-checkout" data-track-checkout="1" href="https://pay.cakto.com.br/u8gq2a4_755862">QUERO COMEÇAR COM 3 MINUTOS POR DIA</a>
         </div>
       </div>
     </section>
@@ -408,6 +415,11 @@ html{scroll-behavior:smooth}
 #sbx28-page .sbx28-hero:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.014) 1px,transparent 1px);background-size:60px 60px;mask-image:linear-gradient(to bottom,black,transparent 82%)}
 #sbx28-page .sbx28-hero-light{position:absolute;width:500px;height:500px;border-radius:50%;right:8%;top:15%;border:1px solid rgba(240,210,139,.13);box-shadow:0 0 130px rgba(200,149,48,.1)}
 #sbx28-page .sbx28-hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+#sbx28-page .sbx28-hero-video-stage{position:relative;width:100%;max-width:610px;margin-inline:auto;padding:18px;border:1px solid rgba(240,210,139,.18);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018));box-shadow:0 34px 85px rgba(0,0,0,.46)}
+#sbx28-page .sbx28-hero-video-label{display:inline-flex;margin:0 0 12px;padding:8px 13px;border-radius:999px;background:rgba(200,149,48,.12);border:1px solid rgba(240,210,139,.23);color:var(--gold2);font-size:.62rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+#sbx28-page .sbx28-hero-video-wrap{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:15px;background:#000;box-shadow:0 22px 55px rgba(0,0,0,.5)}
+#sbx28-page .sbx28-hero-video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+#sbx28-page .sbx28-hero-video-note{display:block;margin-top:11px;color:#a99e8e;font-size:.67rem;text-align:center}
 #sbx28-page .sbx28-hero h1 span,#sbx28-page .sbx28-mechanism h2 span{color:var(--gold2)}
 #sbx28-page .sbx28-promise{font-family:Georgia,serif;color:var(--gold2);font-size:1.3rem;font-style:italic}
 #sbx28-page .sbx28-lead{max-width:720px;color:#d6cdbf;font-size:1.08rem}
@@ -589,6 +601,8 @@ html{scroll-behavior:smooth}
   #sbx28-page h1{font-size:2.5rem}
   #sbx28-page h2{font-size:2rem}
   #sbx28-page .sbx28-hero-grid{gap:45px}
+  #sbx28-page .sbx28-hero-video-stage{padding:10px;border-radius:18px}
+  #sbx28-page .sbx28-hero-video-wrap{border-radius:12px}
   #sbx28-page .sbx28-hero-points,#sbx28-page .sbx28-pain-grid,#sbx28-page .sbx28-benefits{grid-template-columns:1fr}
   #sbx28-page .sbx28-pages{grid-template-columns:repeat(2,1fr);gap:12px}
   #sbx28-page .sbx28-pages figure{padding:7px 7px 12px}
