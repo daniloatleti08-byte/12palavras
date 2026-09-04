@@ -28,3 +28,6 @@ O Pixel agora está instalado diretamente no `index.html` para evitar cache do a
 
 Eventos do site: `PageView`, `ViewContent` e `CheckoutClick`.
 A Cakto continua responsável por `InitiateCheckout` e `Purchase`.
+
+
+Atualização V4.1: vídeo da primeira dobra em proporção vertical 9:16, otimizado para mobile.
