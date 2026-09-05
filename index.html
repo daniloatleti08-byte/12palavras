@@ -12,7 +12,7 @@
 <!-- META PIXEL — ALTERE APENAS O ID ABAIXO -->
 <script>
 (function(w,d){
-  var META_PIXEL_ID = '1684026826038026'.trim();
+  var META_PIXEL_ID = 'COLE_SEU_PIXEL_ID_AQUI'.trim();
   w.__META_PIXEL_ID = META_PIXEL_ID;
 
   if (!/^\d{5,25}$/.test(META_PIXEL_ID)) {
@@ -84,7 +84,7 @@ Para o Meta Pixel, procure por META_PIXEL_ID neste index.html e substitua o valo
   </div>
 
   <main>
-    <!-- 1. HERO — promessa + vídeo + CTA direto para checkout -->
+    <!-- 1. HERO — promessa + vídeo; sem CTA nesta primeira dobra -->
     <section class="sbx28-section sbx28-hero">
       <div class="sbx28-hero-light" aria-hidden="true"></div>
       <div class="sbx28-container sbx28-hero-grid">
@@ -113,8 +113,6 @@ Para o Meta Pixel, procure por META_PIXEL_ID neste index.html e substitua o valo
               allowfullscreen></iframe>
           </div>
           <small class="sbx28-hero-video-note">Vídeo de apresentação • Ative o som para assistir</small>
-          <a class="sbx28-cta sbx28-checkout sbx28-hero-video-cta" data-track-checkout="1" href="https://pay.cakto.com.br/u8gq2a4_755862">QUERO CONHECER A JORNADA</a>
-          <small class="sbx28-cta-note">Compra segura • Pix ou cartão • Acesso digital</small>
         </div>
       </div>
     </section>
@@ -420,8 +418,6 @@ html{scroll-behavior:smooth}
 #sbx28-page .sbx28-hero-video-wrap{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;border-radius:15px;background:#000;box-shadow:0 22px 55px rgba(0,0,0,.5)}
 #sbx28-page .sbx28-hero-video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
-#sbx28-page .sbx28-hero-video-cta{display:flex;margin:22px auto 0;width:min(100%,440px)}
-#sbx28-page .sbx28-hero-video-stage>.sbx28-cta-note{text-align:center}
 #sbx28-page .sbx28-hero-video-note{display:block;margin-top:11px;color:#a99e8e;font-size:.67rem;text-align:center}
 #sbx28-page .sbx28-hero h1 span,#sbx28-page .sbx28-mechanism h2 span{color:var(--gold2)}
 #sbx28-page .sbx28-promise{font-family:Georgia,serif;color:var(--gold2);font-size:1.3rem;font-style:italic}

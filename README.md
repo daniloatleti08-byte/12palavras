@@ -31,3 +31,6 @@ A Cakto continua responsável por `InitiateCheckout` e `Purchase`.
 
 
 Atualização V4.1: vídeo da primeira dobra em proporção vertical 9:16, otimizado para mobile.
+
+
+V4.3: removido o CTA que ficava imediatamente abaixo do vídeo da primeira dobra. Os demais CTAs da página permanecem apontando para o checkout.
