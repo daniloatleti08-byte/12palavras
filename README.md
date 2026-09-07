@@ -34,3 +34,12 @@ Atualização V4.1: vídeo da primeira dobra em proporção vertical 9:16, otimi
 
 
 V4.3: removido o CTA que ficava imediatamente abaixo do vídeo da primeira dobra. Os demais CTAs da página permanecem apontando para o checkout.
+
+
+V4.4 — Otimização de estrutura:
+- headline da primeira dobra mais direta;
+- VSL/vídeo de vendas removido;
+- capa do produto voltou para a primeira dobra;
+- depoimentos em vídeo movidos para a segunda seção;
+- primeiro CTA aparece após a prova social;
+- demais CTAs continuam levando direto ao checkout.
