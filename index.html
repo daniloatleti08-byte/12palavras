@@ -666,5 +666,25 @@ html{scroll-behavior:smooth}
   });
 })();
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const parametrosAtuais = new URLSearchParams(window.location.search);
+
+  if (!parametrosAtuais.toString()) return;
+
+  document
+    .querySelectorAll('a[href*="pay.cakto.com.br"]')
+    .forEach(function (botao) {
+      const checkout = new URL(botao.href);
+
+      parametrosAtuais.forEach(function (valor, chave) {
+        checkout.searchParams.set(chave, valor);
+      });
+
+      botao.href = checkout.toString();
+    });
+});
+</script>
 </body>
+</script>
 </html>
