@@ -105,16 +105,16 @@ Para o Meta Pixel, procure por META_PIXEL_ID neste index.html e substitua o valo
       <div class="sbx28-container sbx28-center sbx28-heading sbx28-video-heading">
         <p class="sbx28-kicker">ASSISTA AO VÍDEO ABAIXO</p>
         <h2>Conheça a Oração Secreta das 12 Palavras de São Bento.</h2>
-        <p>Toque no vídeo e assista até o final para entender como funciona.</p>
+        <p>O vídeo começa automaticamente e sem som quando aparece na tela. Ative o áudio no player e assista até o final para entender como funciona.</p>
       </div>
       <div class="sbx28-container sbx28-videos sbx28-videos-short">
         <div class="sbx28-video" data-youtube-id="yp3U_mlEH5Y" role="button" tabindex="0" aria-label="Reproduzir vídeo sobre a Oração Secreta das 12 Palavras de São Bento">
-          <img src="https://i.ytimg.com/vi/yp3U_mlEH5Y/hqdefault.jpg" alt="Miniatura do vídeo sobre a Oração Secreta das 12 Palavras de São Bento" loading="lazy" decoding="async"><span class="sbx28-play">▶</span><b>TOQUE PARA ASSISTIR</b>
+          <img src="https://i.ytimg.com/vi/yp3U_mlEH5Y/hqdefault.jpg" alt="Miniatura do vídeo sobre a Oração Secreta das 12 Palavras de São Bento" loading="lazy" decoding="async"><span class="sbx28-play">▶</span><b>O VÍDEO INICIARÁ AUTOMATICAMENTE</b>
         </div>
       </div>
       <div class="sbx28-container sbx28-center">
         <small class="sbx28-proof-note">Experiências individuais. Percepções e resultados podem variar.</small>
-        <a class="sbx28-cta sbx28-checkout sbx28-proof-cta" data-track-checkout="1" href="https://pay.cakto.com.br/u8gq2a4_755862" aria-label="Eu quero a Oração Secreta das 12 Palavras hoje mesmo">EU QUERO A ORAÇÃO SECRETA HOJE MESMO</a>
+        <a class="sbx28-cta sbx28-proof-cta" href="#preco" aria-label="Ver o preço da Oração Secreta das 12 Palavras de São Bento">EU QUERO A ORAÇÃO SECRETA HOJE MESMO</a>
         <small class="sbx28-cta-note">Material digital • 4x de R$ 13,00 ou R$ 42,99 à vista • Acesso pelo WhatsApp e e-mail • Garantia de 7 dias</small>
       </div>
     </section>
@@ -669,16 +669,23 @@ html{scroll-behavior:smooth}
   });
   root.querySelectorAll('.sbx28-checkout').forEach(function(a){if(checkout)a.href=checkout;});
 
-  function play(card){
-    if(!card || card.dataset.loaded==='1')return;
+  function sendPlayerCommand(iframe,command){
+    if(!iframe || !iframe.contentWindow)return;
+    iframe.contentWindow.postMessage(JSON.stringify({event:'command',func:command,args:[]}), '*');
+  }
+
+  function play(card,autoplayMuted){
+    if(!card)return null;
+    if(card.dataset.loaded==='1')return card.querySelector('iframe');
     var id=card.getAttribute('data-youtube-id'); if(!id)return;
     var iframe=document.createElement('iframe');
-    iframe.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0&modestbranding=1&cc_load_policy=1&cc_lang_pref=pt';
+    iframe.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute='+(autoplayMuted?'1':'0')+'&playsinline=1&enablejsapi=1&rel=0&modestbranding=1&cc_load_policy=1&cc_lang_pref=pt';
     iframe.title=card.getAttribute('aria-label')||'Vídeo';
     iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     iframe.referrerPolicy='strict-origin-when-cross-origin';
     iframe.allowFullscreen=true;
     card.dataset.loaded='1';card.innerHTML='';card.appendChild(iframe);
+    return iframe;
   }
   var whatsapp=root.querySelector('.sbx28-whatsapp');
   if(whatsapp){
@@ -688,9 +695,42 @@ html{scroll-behavior:smooth}
   }
 
   root.querySelectorAll('.sbx28-video').forEach(function(card){
-    card.addEventListener('click',function(){play(card)});
-    card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play(card)}});
+    card.addEventListener('click',function(){play(card,false)});
+    card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play(card,false)}});
   });
+
+  var featuredVideo=root.querySelector('.sbx28-proof-short .sbx28-video');
+  if(featuredVideo){
+    if('IntersectionObserver' in window){
+      var featuredStarted=false;
+      var videoObserver=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          var iframe=featuredVideo.querySelector('iframe');
+          if(entry.isIntersecting && entry.intersectionRatio>=0.55){
+            if(!featuredStarted){
+              iframe=play(featuredVideo,true);
+              featuredStarted=true;
+            }else{
+              sendPlayerCommand(iframe,'playVideo');
+            }
+          }else if(featuredStarted){
+            sendPlayerCommand(iframe,'pauseVideo');
+          }
+        });
+      },{threshold:[0,0.55]});
+      videoObserver.observe(featuredVideo);
+    }else{
+      var startFeaturedVideo=function(){
+        var rect=featuredVideo.getBoundingClientRect();
+        if(rect.top<window.innerHeight*0.72 && rect.bottom>window.innerHeight*0.28){
+          play(featuredVideo,true);
+          window.removeEventListener('scroll',startFeaturedVideo);
+        }
+      };
+      window.addEventListener('scroll',startFeaturedVideo,{passive:true});
+      startFeaturedVideo();
+    }
+  }
 })();
 </script>
 <script>
