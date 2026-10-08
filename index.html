@@ -82,7 +82,7 @@ Para o Meta Pixel, procure por META_PIXEL_ID neste index.html e substitua o valo
       <div class="sbx28-container sbx28-hero-grid">
         <div class="sbx28-hero-copy">
           <p class="sbx28-kicker">SE VOCÊ CHEGOU ATÉ AQUI, TALVEZ NÃO TENHA SIDO POR ACASO</p>
-          <h1>Acesse a Oração Secreta das 12 Palavras de São Bento e Receba uma Benção Financeira em Até 9 Dias.</span></h1>
+          <h1>Acesse a Oração Secreta das 12 Palavras de São Bento e Receba uma Benção Financeira em Até 9 Dias.</h1>
           <p class="sbx28-lead">Dedique apenas 3 minutos por dia, faça a oração secreta das 12 palavras de São Bento, para fortalecer sua proteção espiritual e buscar a abertura de caminhos que pareciam bloqueados.</p>
 
           <div class="sbx28-hero-points" aria-label="O que você recebe">
@@ -92,11 +92,6 @@ Para o Meta Pixel, procure por META_PIXEL_ID neste index.html e substitua o valo
           </div>
         </div>
 
-        <div class="sbx28-hero-product-stage" aria-label="Oração Secreta das 12 Palavras de São Bento">
-          <div class="sbx28-cover-ring" aria-hidden="true"></div>
-          <img class="sbx28-cover-image" width="1086" height="1448" alt="Capa da Oração Secreta das 12 Palavras de São Bento" decoding="async" fetchpriority="high">
-          <div class="sbx28-cover-badge">MATERIAL DIGITAL</div>
-        </div>
       </div>
     </section>
 
@@ -105,7 +100,7 @@ Para o Meta Pixel, procure por META_PIXEL_ID neste index.html e substitua o valo
       <div class="sbx28-container sbx28-center sbx28-heading sbx28-video-heading">
         <p class="sbx28-kicker">ASSISTA AO VÍDEO ABAIXO</p>
         <h2>Conheça a Oração Secreta das 12 Palavras de São Bento.</h2>
-        <p>O vídeo começa automaticamente e sem som quando aparece na tela. Ative o áudio no player e assista até o final para entender como funciona.</p>
+        <p>O vídeo começa automaticamente quando aparece na tela. Se o navegador bloquear o áudio, toque em <b>ATIVAR SOM</b>.</p>
       </div>
       <div class="sbx28-container sbx28-videos sbx28-videos-short">
         <div class="sbx28-video" data-youtube-id="yp3U_mlEH5Y" role="button" tabindex="0" aria-label="Reproduzir vídeo sobre a Oração Secreta das 12 Palavras de São Bento">
@@ -422,10 +417,13 @@ html{scroll-behavior:smooth}
 #sbx28-page .sbx28-topbar i{color:var(--gold);font-style:normal}
 
 /* Hero */
-#sbx28-page .sbx28-hero{min-height:690px;display:flex;align-items:center;background:radial-gradient(circle at 74% 36%,rgba(200,149,48,.18),transparent 27%),linear-gradient(145deg,#050504 0%,#151008 100%)}
+#sbx28-page .sbx28-hero{min-height:auto;display:flex;align-items:center;background:radial-gradient(circle at 74% 36%,rgba(200,149,48,.18),transparent 27%),linear-gradient(145deg,#050504 0%,#151008 100%)}
 #sbx28-page .sbx28-hero:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.014) 1px,transparent 1px);background-size:60px 60px;mask-image:linear-gradient(to bottom,black,transparent 82%)}
 #sbx28-page .sbx28-hero-light{position:absolute;width:500px;height:500px;border-radius:50%;right:8%;top:15%;border:1px solid rgba(240,210,139,.13);box-shadow:0 0 130px rgba(200,149,48,.1)}
-#sbx28-page .sbx28-hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+#sbx28-page .sbx28-hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr;align-items:center;max-width:980px}
+#sbx28-page .sbx28-hero-copy{text-align:center}
+#sbx28-page .sbx28-hero-copy .sbx28-lead{margin-inline:auto}
+#sbx28-page .sbx28-hero-copy .sbx28-hero-points{max-width:850px;margin-inline:auto}
 #sbx28-page .sbx28-hero-product-stage{position:relative;width:min(100%,430px);margin-inline:auto;padding:18px}
 #sbx28-page .sbx28-hero-product-stage img{position:relative;z-index:2;width:100%;max-width:390px;height:auto!important;margin-inline:auto;border-radius:10px;box-shadow:0 40px 90px rgba(0,0,0,.65);transform:perspective(1100px) rotateY(-3deg)}
 #sbx28-page .sbx28-hero-micro{margin:18px 0 0;color:#a99e8e;font-size:.72rem;font-weight:700;letter-spacing:.02em}
@@ -525,6 +523,9 @@ html{scroll-behavior:smooth}
 #sbx28-page .sbx28-play{position:absolute;z-index:2;left:50%;top:47%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:50%;background:linear-gradient(180deg,#f3d993,#bd892b);color:#171006;font-size:1.35rem;padding-left:5px;box-shadow:0 0 0 11px rgba(240,210,139,.12),0 16px 40px rgba(0,0,0,.4)}
 #sbx28-page .sbx28-video>b{position:absolute;z-index:2;left:0;right:0;bottom:25px;text-align:center;color:#fff;font-size:.64rem;letter-spacing:.13em}
 #sbx28-page .sbx28-video iframe{width:100%;height:100%;border:0;position:absolute;inset:0;z-index:5}
+#sbx28-page .sbx28-sound-toggle{position:absolute;z-index:8;left:50%;bottom:26px;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;gap:9px;min-width:190px;min-height:52px;padding:12px 20px;border:1px solid rgba(255,255,255,.72);border-radius:999px;background:#c69531;color:#160f05;font:900 .78rem/1 Arial,sans-serif;letter-spacing:.07em;cursor:pointer;box-shadow:0 12px 34px rgba(0,0,0,.52);animation:sbx28SoundPulse 1.5s ease-in-out infinite}
+#sbx28-page .sbx28-sound-toggle:hover{background:#efd28c}
+@keyframes sbx28SoundPulse{0%,100%{box-shadow:0 12px 34px rgba(0,0,0,.52),0 0 0 0 rgba(240,210,139,.38)}50%{box-shadow:0 12px 34px rgba(0,0,0,.52),0 0 0 12px rgba(240,210,139,0)}}
 #sbx28-page .sbx28-proof-note{display:block;margin-top:28px;color:#958a79;font-size:.7rem}
 
 /* Audience */
@@ -669,9 +670,44 @@ html{scroll-behavior:smooth}
   });
   root.querySelectorAll('.sbx28-checkout').forEach(function(a){if(checkout)a.href=checkout;});
 
-  function sendPlayerCommand(iframe,command){
+  function sendPlayerCommand(iframe,command,args){
     if(!iframe || !iframe.contentWindow)return;
-    iframe.contentWindow.postMessage(JSON.stringify({event:'command',func:command,args:[]}), '*');
+    iframe.contentWindow.postMessage(JSON.stringify({event:'command',func:command,args:args||[]}), '*');
+  }
+
+  var featuredVideo=root.querySelector('.sbx28-proof-short .sbx28-video');
+  var userHasInteracted=false;
+
+  function activateFeaturedSound(removeButton){
+    if(!featuredVideo)return;
+    var iframe=featuredVideo.querySelector('iframe');
+    if(!iframe)return;
+    var applySound=function(){
+      sendPlayerCommand(iframe,'unMute');
+      sendPlayerCommand(iframe,'setVolume',[100]);
+      sendPlayerCommand(iframe,'playVideo');
+    };
+    applySound();
+    window.setTimeout(applySound,300);
+    if(removeButton!==false){
+      var button=featuredVideo.querySelector('.sbx28-sound-toggle');
+      if(button)button.remove();
+    }
+  }
+
+  function showSoundButton(card){
+    if(!card || card.querySelector('.sbx28-sound-toggle'))return;
+    var button=document.createElement('button');
+    button.type='button';
+    button.className='sbx28-sound-toggle';
+    button.innerHTML='<span aria-hidden="true">🔊</span> ATIVAR SOM';
+    button.addEventListener('click',function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      userHasInteracted=true;
+      activateFeaturedSound(true);
+    });
+    card.appendChild(button);
   }
 
   function play(card,autoplayMuted){
@@ -685,6 +721,10 @@ html{scroll-behavior:smooth}
     iframe.referrerPolicy='strict-origin-when-cross-origin';
     iframe.allowFullscreen=true;
     card.dataset.loaded='1';card.innerHTML='';card.appendChild(iframe);
+    if(card===featuredVideo && autoplayMuted){
+      showSoundButton(card);
+      iframe.addEventListener('load',function(){if(userHasInteracted)activateFeaturedSound(false)},{once:true});
+    }
     return iframe;
   }
   var whatsapp=root.querySelector('.sbx28-whatsapp');
@@ -699,7 +739,14 @@ html{scroll-behavior:smooth}
     card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play(card,false)}});
   });
 
-  var featuredVideo=root.querySelector('.sbx28-proof-short .sbx28-video');
+  function registerUserInteraction(){
+    userHasInteracted=true;
+    if(featuredVideo && featuredVideo.dataset.loaded==='1')activateFeaturedSound(true);
+  }
+  document.addEventListener('pointerdown',registerUserInteraction,{passive:true,once:true});
+  document.addEventListener('touchstart',registerUserInteraction,{passive:true,once:true});
+  document.addEventListener('keydown',registerUserInteraction,{once:true});
+
   if(featuredVideo){
     if('IntersectionObserver' in window){
       var featuredStarted=false;
